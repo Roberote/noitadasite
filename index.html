@@ -6,6 +6,79 @@
     <title>NOITADA INSANA 2.0 - Downloads de Jogos</title>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Rubik+Glitch&family=Syne+Mono&family=Major+Mono+Display&display=swap" rel="stylesheet">
     <style>
+        /* Botão de Clipes */
+.header-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.clips-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, var(--neon-orange), var(--neon-yellow));
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4);
+    z-index: 1;
+    letter-spacing: 1px;
+    animation: pulseClips 2s infinite alternate;
+}
+
+@keyframes pulseClips {
+    0% { transform: scale(1); box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4); }
+    100% { transform: scale(1.05); box-shadow: 0 12px 35px rgba(255, 153, 0, 0.7); }
+}
+
+.clips-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.clips-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 15px 40px rgba(255, 153, 0, 0.8);
+    background: linear-gradient(45deg, var(--neon-yellow), var(--neon-orange));
+    color: #000;
+    animation: none;
+}
+
+.clips-btn:hover::before {
+    left: 100%;
+}
+
+.clips-btn:active {
+    transform: translateY(2px) scale(0.98);
+}
+
+.clips-btn i {
+    margin-left: 8px;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.clips-btn:hover i {
+    transform: translateX(5px) rotate(360deg);
+}
         /* Reset e Estilos Base */
         * {
             margin: 0;
