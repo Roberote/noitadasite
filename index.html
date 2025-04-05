@@ -6,6 +6,122 @@
     <title>NOITADA INSANA 2.0 - Downloads de Jogos</title>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Rubik+Glitch&family=Syne+Mono&family=Major+Mono+Display&display=swap" rel="stylesheet">
     <style>
+        /* Estilos para a página de clipes */
+.clipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.clipe-card {
+    background: rgba(0, 0, 0, 0.85);
+    border: 3px solid var(--neon-orange);
+    border-radius: 20px;
+    padding: 1.5rem;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 30px rgba(255, 153, 0, 0.2);
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+.clipe-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 20px 50px rgba(255, 153, 0, 0.6);
+    border-color: transparent;
+}
+
+.clipe-video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* Proporção 16:9 */
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    transform-style: preserve-3d;
+}
+
+.clipe-video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.clipe-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255,153,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.clipe-card:hover .clipe-overlay {
+    opacity: 1;
+}
+
+.clipe-title {
+    font-family: 'Major Mono Display', monospace;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--neon-yellow);
+    text-shadow: 0 0 8px rgba(255, 255, 0, 0.5);
+    transition: all 0.4s ease;
+}
+
+.clipe-card:hover .clipe-title {
+    color: var(--neon-orange);
+    text-shadow: 0 0 15px rgba(255, 153, 0, 0.8);
+}
+
+.clipe-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #ccc;
+    transition: all 0.4s ease;
+}
+
+.clipe-card:hover .clipe-description {
+    color: #fff;
+}
+
+.clipe-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.clipe-meta i {
+    margin-right: 5px;
+    color: var(--neon-orange);
+}
+
+/* Responsividade para clipes */
+@media (max-width: 768px) {
+    .clipes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .clipe-card {
+        padding: 1rem;
+    }
+    
+    .clipe-title {
+        font-size: 1.3rem;
+    }
+}
         /* Botão de Clipes */
 .header-buttons {
     margin-top: 2rem;
