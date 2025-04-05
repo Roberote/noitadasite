@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOITADA INSANA 2.0 - Melhores Clipes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Rubik+Glitch&family=Syne+Mono&family=Major+Mono+Display&display=swap" rel="stylesheet">
+    <style>
+        /* Copie TODO o CSS do arquivo principal aqui */
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Efeitos Visuais (copie TODOS os efeitos do arquivo principal) -->
+    
+    <!-- Container Principal -->
+    <div class="container">
+        <header>
+            <h1>MELHORES CLIPES</h1>
+            <p class="subtitle typing-effect">MOMENTOS ÉPICOS DAS NOITADAS</p>
+            <div class="header-buttons">
+                <a href="index.html" class="clips-btn">VOLTAR PARA JOGOS <i class="fas fa-gamepad"></i></a>
+            </div>
+        </header>
+        
+        <!-- Grid de Clipes -->
+        <div class="clipes-grid">
+            <!-- Clipe 1 -->
+            <div class="clipe-card">
+                <div class="clipe-video-container">
+                    <iframe src="https://www.youtube.com/embed/SEU_ID_DO_VIDEO" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="clipe-overlay"></div>
+                </div>
+                <h3 class="clipe-title">MOMENTO ÉPICO #1</h3>
+                <p class="clipe-description">Descrição do que aconteceu nesse clipe incrível!</p>
+                <div class="clipe-meta">
+                    <span class="clipe-date"><i class="fas fa-calendar-alt"></i> 15/06/2023</span>
+                    <span class="clipe-duration"><i class="fas fa-clock"></i> 0:45</span>
+                </div>
+            </div>
+            
+            <!-- Clipe 2 -->
+            <div class="clipe-card">
+                <div class="clipe-video-container">
+                    <iframe src="https://www.youtube.com/embed/OUTRO_ID_DO_VIDEO" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="clipe-overlay"></div>
+                </div>
+                <h3 class="clipe-title">MOMENTO ALEATÓRIO #42</h3>
+                <p class="clipe-description">Quando tudo deu errado de forma hilária!</p>
+                <div class="clipe-meta">
+                    <span class="clipe-date"><i class="fas fa-calendar-alt"></i> 22/07/2023</span>
+                    <span class="clipe-duration"><i class="fas fa-clock"></i> 1:12</span>
+                </div>
+            </div>
+            
+            <!-- Adicione mais clipes conforme necessário -->
+        </div>
+    </div>
+
+    <!-- Adicione os scripts do arquivo principal aqui -->
+
+    <!-- Script adicional para a página de clipes -->
+    <script>
+        // Efeito especial ao carregar a página de clipes
+        document.addEventListener('DOMContentLoaded', function() {
+            // Criar explosão inicial
+            createExplosion(window.innerWidth / 2, window.innerHeight / 2);
+            
+            // Criar confete
+            setTimeout(createConfetti, 500);
+            
+            // Efeito de hover nos cards de clipe
+            const clipeCards = document.querySelectorAll('.clipe-card');
+            clipeCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const colors = ['var(--neon-pink)', 'var(--neon-cyan)', 'var(--neon-yellow)', 'var(--neon-purple)'];
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                    card.style.boxShadow = `0 0 30px ${randomColor}`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.boxShadow = '0 10px 30px rgba(255, 0, 255, 0.2)';
+                });
+                
+                card.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'A') return;
+                    createExplosion(e.clientX, e.clientY);
+                    playSound();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
