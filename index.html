@@ -811,6 +811,233 @@
             0% { background-position: 0 0; }
             100% { background-position: 100px 100px; }
         }
+           /* Adicionando apenas os novos estilos para a seção de clipes */
+        
+        /* Seção de Clipes */
+        .clips-section {
+            margin-top: 8rem;
+            padding: 3rem;
+            background: rgba(0, 0, 0, 0.7);
+            border: 3px solid var(--neon-cyan);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            transform-style: preserve-3d;
+        }
+        
+        .clips-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                transparent 0%, 
+                rgba(0, 255, 255, 0.1) 50%, 
+                transparent 100%);
+            animation: scanline 8s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        
+        .clips-title {
+            font-family: 'Rubik Glitch', cursive;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 15px var(--neon-cyan), 0 0 30px var(--neon-pink);
+            animation: neonFlicker 3s infinite alternate;
+        }
+        
+        .clips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+        
+        .clip-card {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--neon-purple);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            box-shadow: 0 10px 25px rgba(157, 0, 255, 0.3);
+        }
+        
+        .clip-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(157, 0, 255, 0.6);
+            border-color: var(--neon-pink);
+        }
+        
+        .clip-player {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--neon-purple);
+        }
+        
+        .clip-info {
+            padding: 1.5rem;
+            position: relative;
+        }
+        
+        .clip-title {
+            font-family: 'Major Mono Display', monospace;
+            font-size: 1.3rem;
+            color: var(--neon-pink);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 8px var(--neon-pink);
+        }
+        
+        .clip-date {
+            font-family: 'Syne Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .clip-description {
+            font-size: 0.9rem;
+            color: #ccc;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+        
+        .clip-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .delete-clip {
+            background: linear-gradient(45deg, #ff0000, #ff3300);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .delete-clip:hover {
+            background: linear-gradient(45deg, #ff3300, #ff0000);
+            transform: scale(1.05);
+        }
+        
+        .add-clip-form {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px dashed var(--neon-green);
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .form-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.2rem;
+            color: var(--neon-green);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            font-family: 'Syne Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--neon-yellow);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--neon-pink);
+            border-radius: 5px;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+        
+        .add-clip-btn {
+            background: linear-gradient(45deg, var(--neon-green), var(--neon-cyan));
+            color: black;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 1rem;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+        
+        .add-clip-btn:hover {
+            background: linear-gradient(45deg, var(--neon-cyan), var(--neon-green));
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
+        }
+        
+        /* Responsividade para a seção de clipes */
+        @media (max-width: 992px) {
+            .clips-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .clips-title {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .clips-title {
+                font-size: 2.2rem;
+            }
+            
+            .clips-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .clip-player {
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .clips-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .clips-title {
+                font-size: 1.8rem;
+            }
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
