@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOITADA INSANA - Central</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Rubik+Glitch&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .choice-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            gap: 3rem;
+        }
+        
+        .choice-btn {
+            padding: 1.5rem 3rem;
+            font-size: 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+        }
+        
+        .downloads-btn {
+            background: linear-gradient(45deg, #ff00ff, #9d00ff);
+            color: #000;
+            box-shadow: 0 0 20px #ff00ff;
+        }
+        
+        .clipes-btn {
+            background: linear-gradient(45deg, #00ffff, #009dff);
+            color: #000;
+            box-shadow: 0 0 20px #00ffff;
+        }
+        
+        .choice-btn:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 0 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="neon-circle"></div>
+    <div class="neon-circle"></div>
+    
+    <div class="choice-container">
+        <h1 class="glitch-title">NOITADA INSANA</h1>
+        <a href="downloads.html" class="choice-btn downloads-btn">DOWNLOAD DOS JOGOS</a>
+        <a href="clipes.html" class="choice-btn clipes-btn">CLIPES ÉPICOS</a>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
