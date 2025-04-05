@@ -1042,6 +1042,72 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>NOITADA INSANA 2.0</h1>
+            <p class="subtitle typing-effect">DOWNLOAD DOS JOGOS E MELHORES CLIPES</p>
+        </header>
+        
+        <div class="games-grid">
+            <!-- [Seus cards de jogos existentes permanecem os mesmos] -->
+        </div>
+        
+        <!-- Nova Seção de Clipes -->
+        <section class="clips-section">
+            <h2 class="clips-title">MELHORES CLIPES</h2>
+            
+            <div class="clips-grid" id="clips-container">
+                <!-- Clipes serão adicionados dinamicamente aqui -->
+                <!-- Exemplo de um clipe (pode ser removido ou usado como modelo) -->
+                <div class="clip-card" data-id="1">
+                    <video class="clip-player" controls>
+                        <source src="clips/exemplo.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                    <div class="clip-info">
+                        <h3 class="clip-title">CLIPE ENGRAÇADO #1</h3>
+                        <span class="clip-date">05/04/2025</span>
+                        <p class="clip-description">Esse foi o momento mais engraçado da noitada, quando o Robert caiu do mapa!</p>
+                        <div class="clip-actions">
+                            <button class="delete-clip" onclick="deleteClip(1)">
+                                <i class="fas fa-trash"></i> DELETAR
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formulário para Adicionar Novo Clipe -->
+            <div class="add-clip-form">
+                <h3 class="form-title">ADICIONAR NOVO CLIPE</h3>
+                <form id="add-clip-form">
+                    <div class="form-group">
+                        <label for="clip-title">TÍTULO DO CLIPE</label>
+                        <input type="text" id="clip-title" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="clip-description">DESCRIÇÃO</label>
+                        <textarea id="clip-description" class="form-control" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="clip-date">DATA</label>
+                        <input type="date" id="clip-date" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="clip-file">ARQUIVO DE VÍDEO (MP4)</label>
+                        <input type="file" id="clip-file" class="form-control" accept="video/mp4" required>
+                    </div>
+                    
+                    <button type="submit" class="add-clip-btn">
+                        <i class="fas fa-plus"></i> ADICIONAR CLIPE
+                    </button>
+                </form>
+            </div>
+        </section>
+    </div>
     <!-- Efeito de Partículas -->
     <div id="particles-js"></div>
     
