@@ -1042,23 +1042,55 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+        <!-- Container Principal Único -->
     <div class="container">
         <header>
             <h1>NOITADA INSANA 2.0</h1>
             <p class="subtitle typing-effect">DOWNLOAD DOS JOGOS E MELHORES CLIPES</p>
         </header>
         
+        <!-- Seção de Jogos -->
         <div class="games-grid">
-            <!-- [Seus cards de jogos existentes permanecem os mesmos] -->
+            <!-- Jogo R.E.P.O. -->
+            <div class="game-card" id="repo-card">
+                <div class="game-image-container">
+                    <img src="https://i.imgur.com/fEw5y9H.png" alt="R.E.P.O." class="game-image">
+                    <div class="game-image-overlay"></div>
+                </div>
+                <h3 class="game-title">R.E.P.O.</h3>
+                <p class="game-description">Jogo "Lethal Like" com mecanicas divertidas e uma cooperatividade muito interessante!</p>
+                <a href="https://www.mediafire.com/file/js2kztdaf30e2pf/R.E.P.O_robertnigersuntolddownload.rar/file" class="download-btn" id="repo-btn">DOWNLOAD AGORA <i class="fas fa-rocket"></i></a>
+            </div>
+            
+            <!-- Jogo Schedule I -->
+            <div class="game-card" id="schedule-card">
+                <div class="game-image-container">
+                    <img src="https://i.imgur.com/x99qA2q.png" alt="Schedule I" class="game-image">
+                    <div class="game-image-overlay"></div>
+                </div>
+                <h3 class="game-title">Schedule I</h3>
+                <p class="game-description">Em breve para download! A aventura mais esperada da noitada está chegando.</p>
+                <button class="download-btn coming-soon">EM BREVE</button>
+            </div>
+            
+            <!-- Espaço para mais jogos -->
+            <div class="game-card" id="more-games">
+                <div class="game-image-container">
+                    <img src="https://i.imgur.com/vduPOXH.png" alt="Mais Jogos" class="game-image">
+                    <div class="game-image-overlay"></div>
+                </div>
+                <h3 class="game-title">MAIS JOGOS</h3>
+                <p class="game-description">Novos jogos em breve! Fique ligado para atualizações constantes.</p>
+                <button class="download-btn coming-soon">EM BREVE</button>
+            </div>
         </div>
         
-        <!-- Nova Seção de Clipes -->
+        <!-- Seção de Clipes (agora dentro do mesmo container) -->
         <section class="clips-section">
             <h2 class="clips-title">MELHORES CLIPES</h2>
             
             <div class="clips-grid" id="clips-container">
-                <!-- Clipes serão adicionados dinamicamente aqui -->
-                <!-- Exemplo de um clipe (pode ser removido ou usado como modelo) -->
+                <!-- Exemplo de clipe (pode ser removido) -->
                 <div class="clip-card" data-id="1">
                     <video class="clip-player" controls>
                         <source src="clips/exemplo.mp4" type="video/mp4">
@@ -1108,6 +1140,7 @@
             </div>
         </section>
     </div>
+    
     <!-- Efeito de Partículas -->
     <div id="particles-js"></div>
     
@@ -1141,7 +1174,7 @@
     <!-- Scanner -->
     <div class="scanner-effect"></div>
     
-    <!-- Efeito de Onda Sonora -->
+    <!-- Efeito de Onda Sonora (no final do body) -->
     <div class="sound-wave">
         <div class="sound-bar" style="animation-delay: 0s"></div>
         <div class="sound-bar" style="animation-delay: 0.1s"></div>
@@ -1154,7 +1187,7 @@
         <div class="sound-bar" style="animation-delay: 0.8s"></div>
         <div class="sound-bar" style="animation-delay: 0.9s"></div>
     </div>
-    
+
     <!-- Container Principal -->
     <div class="container">
         <header>
