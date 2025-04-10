@@ -1033,8 +1033,19 @@
                     <div class="game-image-overlay"></div>
                 </div>
                 <h3 class="game-title">Schedule I</h3>
-                <p class="game-description">Em breve para download! A aventura mais esperada da noitada está chegando.</p>
-                <button class="download-btn coming-soon">EM BREVE</button>
+                <p class="game-description">A aventura mais esperada da noitada! Um jogo de ação e estratégia com elementos únicos.</p>
+                <a href="https://www.mediafire.com/file/schedule1download" class="download-btn" id="schedule-btn">DOWNLOAD AGORA <i class="fas fa-download"></i></a>
+            </div>
+            
+            <!-- Jogo My Garage -->
+            <div class="game-card" id="garage-card">
+                <div class="game-image-container">
+                    <img src="https://i.imgur.com/placeholder-image.jpg" alt="My Garage" class="game-image">
+                    <div class="game-image-overlay"></div>
+                </div>
+                <h3 class="game-title">My Garage</h3>
+                <p class="game-description">Simulador de mecânica de carros cooperativo! Trabalhe com amigos para consertar e personalizar veículos.</p>
+                <a href="https://www.mediafire.com/file/mygaragedownload" class="download-btn" id="garage-btn">DOWNLOAD AGORA <i class="fas fa-car"></i></a>
             </div>
             
             <!-- Espaço para mais jogos -->
@@ -1297,6 +1308,28 @@
                 }, 1500);
             });
             
+            // Efeito para os novos botões de download
+            const scheduleBtn = document.getElementById('schedule-btn');
+            const garageBtn = document.getElementById('garage-btn');
+            
+            scheduleBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                createConfetti();
+                createExplosion(e.clientX, e.clientY);
+                setTimeout(() => {
+                    window.location.href = this.href;
+                }, 1500);
+            });
+            
+            garageBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                createConfetti();
+                createExplosion(e.clientX, e.clientY);
+                setTimeout(() => {
+                    window.location.href = this.href;
+                }, 1500);
+            });
+            
             // Efeito de hover 3D nos cards
             const cards = document.querySelectorAll('.game-card');
             cards.forEach(card => {
@@ -1428,7 +1461,7 @@
             const glow = document.createElement('div');
             glow.className = 'light-particle';
             glow.style.left = `${randomX}px`;
-            glow.style.top = `${randomY}px`;
+            glow.style.top = `${randomY}px';
             
             const colors = ['#ff00ff', '#00ffff', '#ffff00', '#9d00ff', '#ff9900', '#00ff00'];
             glow.style.background = colors[Math.floor(Math.random() * colors.length)];
