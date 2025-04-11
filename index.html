@@ -1037,6 +1037,28 @@
                 <a href="https://www.mediafire.com/file/schedule1download" class="download-btn" id="schedule-btn">DOWNLOAD AGORA <i class="fas fa-download"></i></a>
             </div>
             
+            <!-- Jogo Blood Typers -->
+            <div class="game-card" id="bloodtypers-card">
+                <div class="game-image-container">
+                    <img src="https://i.imgur.com/placeholder-image.jpg" alt="Blood Typers" class="game-image">
+                    <div class="game-image-overlay"></div>
+                </div>
+                <h3 class="game-title">Blood Typers</h3>
+                <p class="game-description">Jogo de ação frenética onde você deve combater hordas de inimigos em um hospital abandonado!</p>
+                <a href="https://www.mediafire.com/file/bloodtypersdownload" class="download-btn" id="bloodtypers-btn">DOWNLOAD AGORA <i class="fas fa-tint"></i></a>
+            </div>
+            
+            <!-- Jogo ZombieVille 3D -->
+            <div class="game-card" id="zombieville-card">
+                <div class="game-image-container">
+                    <img src="https://i.imgur.com/placeholder-image.jpg" alt="ZombieVille 3D" class="game-image">
+                    <div class="game-image-overlay"></div>
+                </div>
+                <h3 class="game-title">ZombieVille 3D</h3>
+                <p class="game-description">Sobreviva em uma cidade infestada de zumbis em um jogo de tiro em primeira pessoa cheio de ação!</p>
+                <a href="https://www.mediafire.com/file/zombievilledownload" class="download-btn" id="zombieville-btn">DOWNLOAD AGORA <i class="fas fa-biohazard"></i></a>
+            </div>
+            
             <!-- Jogo My Garage -->
             <div class="game-card" id="garage-card">
                 <div class="game-image-container">
@@ -1115,12 +1137,29 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-            // Efeito visual
-            createExplosion(
-                clipElement.getBoundingClientRect().left + clipElement.offsetWidth / 2,
-                clipElement.getBoundingClientRect().top + clipElement.offsetHeight / 2
-            );
-            playSound();
+        // Efeito visual
+        function createExplosion(x, y) {
+            const explosion = document.createElement('div');
+            explosion.className = 'explosion';
+            explosion.style.left = `${x}px`;
+            explosion.style.top = `${y}px`;
+            document.body.appendChild(explosion);
+            
+            setTimeout(() => {
+                explosion.remove();
+            }, 1000);
+        }
+
+        function playSound() {
+            const sounds = [
+                'data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU...',
+                'data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU...',
+                'data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU...'
+            ];
+            
+            const audio = new Audio(sounds[Math.floor(Math.random() * sounds.length)]);
+            audio.volume = 0.1;
+            audio.play().catch(e => console.log('Audio play failed:', e));
         }
         // Inicialização do Particles.js
         particlesJS("particles-js", {
@@ -1311,6 +1350,8 @@
             // Efeito para os novos botões de download
             const scheduleBtn = document.getElementById('schedule-btn');
             const garageBtn = document.getElementById('garage-btn');
+            const bloodtypersBtn = document.getElementById('bloodtypers-btn');
+            const zombievilleBtn = document.getElementById('zombieville-btn');
             
             scheduleBtn.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1322,6 +1363,24 @@
             });
             
             garageBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                createConfetti();
+                createExplosion(e.clientX, e.clientY);
+                setTimeout(() => {
+                    window.location.href = this.href;
+                }, 1500);
+            });
+            
+            bloodtypersBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                createConfetti();
+                createExplosion(e.clientX, e.clientY);
+                setTimeout(() => {
+                    window.location.href = this.href;
+                }, 1500);
+            });
+            
+            zombievilleBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 createConfetti();
                 createExplosion(e.clientX, e.clientY);
@@ -1423,19 +1482,6 @@
             }
         }
         
-        // Função para criar explosão
-        function createExplosion(x, y) {
-            const explosion = document.createElement('div');
-            explosion.className = 'explosion';
-            explosion.style.left = `${x}px`;
-            explosion.style.top = `${y}px`;
-            document.body.appendChild(explosion);
-            
-            setTimeout(() => {
-                explosion.remove();
-            }, 1000);
-        }
-        
         // Função para criar rastro de cursor
         function createCursorTrail(x, y) {
             const cursor = document.createElement('div');
@@ -1461,7 +1507,7 @@
             const glow = document.createElement('div');
             glow.className = 'light-particle';
             glow.style.left = `${randomX}px`;
-            glow.style.top = `${randomY}px';
+            glow.style.top = `${randomY}px`;
             
             const colors = ['#ff00ff', '#00ffff', '#ffff00', '#9d00ff', '#ff9900', '#00ff00'];
             glow.style.background = colors[Math.floor(Math.random() * colors.length)];
@@ -1486,19 +1532,6 @@
             setTimeout(() => {
                 particle.remove();
             }, 3000);
-        }
-        
-        // Função para tocar som
-        function playSound() {
-            const sounds = [
-                'data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU...',
-                'data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU...',
-                'data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU...'
-            ];
-            
-            const audio = new Audio(sounds[Math.floor(Math.random() * sounds.length)]);
-            audio.volume = 0.1;
-            audio.play().catch(e => console.log('Audio play failed:', e));
         }
         
         // Redimensionamento
